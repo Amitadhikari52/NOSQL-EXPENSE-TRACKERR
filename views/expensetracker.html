@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-image: url('pg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        #ui {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        #submit {
+            margin-top: 10px;
+        }
+
+        #leaderBoardButton {
+            margin-bottom: 5px;
+        }
+
+        #expensesPreferenceContainer {
+            box-sizing: border-box;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        select {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        #Buypremium-button,
+        #downloadexpense {
+            margin-top: 20px;
+        }
+
+        .btn-signup {
+            margin-top: 20px;
+            margin-left: 29%;
+        }
+
+        .btn-signup a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .btn-signup a:hover {
+            text-decoration: underline;
+        }
+
+        #outputContainer {
+            margin-top: 20px;
+        }
+
+        #listOfItems,
+        #LeaderBoard {
+            list-style: none;
+            padding: 0;
+        }
+
+        .delete-btn {
+            margin-left: 10px;
+            /* Adjust margin-left for spacing */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div id="ui">
+                <h1><b>Expense Tracker App</b></h1>
+                <form onsubmit="saveToLocalStorage(event)" class="form-group">
+                    <div class="row">
+                        <label>Choose Expense Amount:</label>
+                        <input type="text" id="expense" name="expense" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <label>Choose Description:</label>
+                        <input type="text" id="Description" name="Description" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <label>Choose a category:</label>
+                        <select id="category" name="category" class="form-control" required>
+                            <option>Food</option>
+                            <option>Movie</option>
+                            <option>Fuel</option>
+                            <option>Room</option>
+                        </select>
+                        <input type="submit" name="submit" value="Add Expense" id="submit"
+                            class="btn btn-primary btn-block btn-lg">
+                    </div>
+                </form>
+                <div>
+                    <button id="Buypremium-button" class="btn btn-info">Buy Premium</button>
+                    <div id="addText"></div>
+                    <button onclick="download()" id="downloadexpense" class="btn btn-success"
+                        style="display: none;">Download File</button>
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                </div>
+                <div id="expensesPreferenceContainer">
+                    <label for="expensesPreference">Select the number of expenses to display:</label>
+                    <select id="expensesPreference" class="btn btn-primary">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                    </select>
+                </div>
+                <div id="pagination"></div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-lg-offset-3">
+            <div id="outputContainer">
+                <ul id="listOfItems">
+                    <!-- Example list item with delete button -->
+                    <li>
+                        <span>100-vegetables-Food</span>
+                        <button class="btn btn-danger btn-xs delete-btn">Delete</button>
+                    </li>
+                </ul>
+                <ul id="LeaderBoard"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-lg-offset-4 btn-signup">
+        <a href="./signup.html"> <button><b>Signup for new users</b></button></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <script src="expensetracker.js"></script>
+</body>
+
+</html>

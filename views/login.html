@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('pg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        #ui {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        #button {
+            margin-top: 20px;
+        }
+
+        .btn-forgot {
+            background-color: #d9534f;
+            border-color: #d43f3a;
+            margin-top: 20px;
+        }
+
+        .btn-forgot a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background-color: #428bca;
+            border-color: #357ebd;
+        }
+
+        .btn-primary:hover {
+            background-color: #3071a9;
+            border-color: #285e8e;
+        }
+
+        #listofitems {
+            list-style: none;
+            padding: 0;
+        }
+
+        .btn-signup {
+            margin-top: 20px;
+        }
+
+        .btn-signup a {
+            color: #333;
+            /* Set the desired text color */
+            text-decoration: none;
+        }
+
+        .btn-signup a:hover {
+            text-decoration: underline;
+            border-color: #285e8e;
+        }
+
+        .col-lg-offset-4 {
+            margin-left: 29%;
+        }
+
+        a {
+            color: #428bca;
+        }
+
+        a:hover {
+            color: #3071a9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="ui">
+            <h1 class="text-center">Login Page</h1>
+            <div class="col-lg-6 col-lg-offset-3">
+                <form onsubmit="saveToCloudStoarage(event)" class="form-group">
+                    <div class="row">
+                        <label>Enter Email id:</label>
+                        <input type="text" name="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <label>Enter Password:</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <input type="submit" id="button" name="Login" value="Login"
+                            class="btn btn-primary btn-block btn-lg">
+                    </div>
+                </form>
+                <div class="row">
+
+                    <button class="btn btn-forgot"><a href="./forgot.html">Forgot password</a></button>
+
+                </div>
+            </div>
+            <ul id="listofitems"></ul>
+        </div>
+    </div>
+    <div class="col-lg-6 col-lg-offset-4 btn-signup">
+        <a href="./signup.html"><b>Signup for new users</b></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="./login.js"></script>
+</body>
+
+</html>
